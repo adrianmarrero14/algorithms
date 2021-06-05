@@ -1,7 +1,18 @@
-const nombres = ['Adrian', 'Juan', 'Andrea']
+class ArrayClass {
+    constructor(){
+        this.length = 0
+        this.data = {}
+    }
 
-console.log(nombres) // >> ['Adrian', 'Juan', 'Andrea']
+    get(index){
+        return this.data[index]
+    }
 
-nombres.push('Mariana') // Add 'Mariana to the end'
+    push(item){
+        this.data[this.length] = item
+        this.length++
+        return this.data
+    }
+}
 
-console.log(nombres) // >> ['Adrian', 'Juan', 'Andrea', 'Mariana']
+const my_array = new ArrayClass()
