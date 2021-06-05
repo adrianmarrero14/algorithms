@@ -46,6 +46,10 @@ class ArrayClass {
         delete this.data[this.length-1]
         this.length--
     }
+
+    // unShift(){  }
+    // deleteFirst(){ }
+    // addFirst(){ }
 }
 
 const my_array = new ArrayClass()
