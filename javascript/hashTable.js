@@ -34,6 +34,8 @@ class HashTable {
         }
         return undefined
     }
+
+    // Delete method
 }
 
 const myHashTable = new HashTable(50)
