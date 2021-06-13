@@ -19,6 +19,16 @@ class Stack {
         }
     }
 
+    takeLast(){
+        if(this.length === 0){
+            return 'The Stack is Empty'
+        } else {
+            const top = this.top
+            this.pop()
+            return top
+        }
+    }
+
     push(value){
         const newNode = new Node(value)
         if(this.length === 0){
