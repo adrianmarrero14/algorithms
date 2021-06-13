@@ -12,7 +12,11 @@ class Stack {
     }
 
     peek(){
-        return this.top
+        if(this.length === 0){
+            return 'The Stack is Empty'
+        } else {
+            return this.top
+        }
     }
 
     push(value){
@@ -27,6 +31,21 @@ class Stack {
         }
         this.length++
         return this
+    }
+
+    pop(){
+        if(this.length === 0){
+            return 'The Stack is Empty'
+        } 
+        if(this.length === 1){
+            this.top = null
+            this.bottom = null
+            this.length = 0
+        }
+        else {
+            this.top =  this.top.next
+            this.length--
+        }
     }
 }
 
