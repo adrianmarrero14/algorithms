@@ -1,8 +1,10 @@
-class HashTable {
+class HashTable 
+{
     constructor(size) 
     {
         this.data = new Array(size)
     }
+
     hashMethod(key) 
     {
         let hash = 0
@@ -21,6 +23,7 @@ class HashTable {
         this.data[address].push([key, value])
         return this.data
     }
+
     get(key)
     {
         const address = this.hashMethod(key)
@@ -34,7 +37,6 @@ class HashTable {
         }
         return undefined
     }
-
     // Delete method
 }
 

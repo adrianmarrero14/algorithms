@@ -1,4 +1,5 @@
-class ArrayClass {
+class ArrayClass 
+{
     constructor()
     {
         this.length = 0

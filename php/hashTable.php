@@ -1,6 +1,6 @@
 <?php
 
-class HashTable
+class HashTable 
 {
     private function __construct($size)
     {
@@ -14,11 +14,7 @@ class HashTable
      */
     public function hashMethod($key)
     {
-        $hash = 0;
-        foreach ($key as $k) {
-            $hash = ($hash + $key->charCodeAt($k) * $k) % $this->data->length();
-        }
-        return $hash;
+        
     }
 
     /**
@@ -28,12 +24,7 @@ class HashTable
      */
     public function set($key, $value)
     {
-        $address = $this->hashMethod($key);
-        if (!$this->data[$address]) {
-            $this->data[$address] = [];
-        }
-        $this->data[$address]->push([$key, $value]);
-        return $this->data;
+        
     }
 
     /**
@@ -43,14 +34,6 @@ class HashTable
      */
     public function get($key)
     {
-        $address = $this->hashMethod($key);
-        $currentBucket = $this->data[$address];
-        if ($currentBucket) {
-            foreach ($currentBucket as $k) {
-                // IMCOMPLETE
-            }
-        }
+        
     }
 }
-
-// THE 99% OF THIS CODE DON'T FORGET. PLEASE DON'T COPY THIS.
