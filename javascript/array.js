@@ -14,27 +14,21 @@ class ArrayClass {
     {
         this.data[this.length] = item
         this.length++
-
         return this.data
     }
 
     pop()
     {
         let last_value = this.data[this.length - 1]
-
         delete this.data[this.length - 1]
-        
         this.length--
-
         return last_value
     }
 
     deleteIndex(index)
     {
         let element = this.data[index]
-
         this.shiftIndex(index)
-
         return element
     }
 
