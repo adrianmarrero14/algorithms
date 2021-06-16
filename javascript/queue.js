@@ -18,13 +18,17 @@ class Queue
 
     peek()
     {
-        return this.first
+        if(this.length === 0){
+            return 'The Queue is Empty'
+        } else {
+            return this.first
+        }
     }
 
     enqueue(value)
     {
         const newNode = new Node(value)
-        if(this.length ===0){
+        if(this.length === 0){
             this.first = newNode
             this.last = newNode
         }
@@ -34,6 +38,15 @@ class Queue
         }
         this.length++
         return this
+    }
+
+    dequeue()
+    {
+        if(this.length === 0){
+            return 'The Queue is Empty'
+        }
+        this.first = this.first.next
+        this.length--
     }
 }
 
