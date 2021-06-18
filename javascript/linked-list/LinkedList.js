@@ -149,6 +149,25 @@ class LinkedList {
     }
 
     /**
+     * Delete the Head Node. 
+     * @return {LinkedListNode}
+     */
+    deleteHead(){
+        if(!this.head){
+            return null
+        }
+
+        const deletedHead = this.head
+        if(this.head.next){
+            this.head = this.head.next
+        } else {
+            this.head = null
+            this.tail = null
+        }
+        return deletedHead
+    }
+
+    /**
      * Array of values that need to be converted to linked list.
      * @param {*[]} values 
      */
