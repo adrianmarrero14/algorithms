@@ -46,6 +46,40 @@ export default class LinkedList {
         this.tail = newNode
         return this
     }
+
+    /**
+     * Array of values that need to be converted to linked list.
+     * @param {*[]} values 
+     */
+    fromArray(values){
+        values.forEach((value) => this.append(value))
+        return this
+    }
+
+    /**
+     * Convert linked list to array.
+     * @return {LinkedListNode[]}
+     */
+    toArray(){
+        const nodes = []
+        let currentNode = this.head
+
+        while (currentNode){
+            nodes.push(currentNode)
+            currentNode = currentNode.next
+        }
+        return nodes
+    }
+
+    /**
+     * Convert linked list to string.
+     * @param {function} [callback]
+     * @return {LinkedListNode[]}
+     */
+    toString(callback){
+        return this.toArray().map((node) => node.toString(callback)).toString()
+    }
+
 }
 
 const myLinkedList = new LinkedList()
