@@ -123,6 +123,32 @@ class LinkedList {
     }
 
     /**
+     * Delete the Tail Node. 
+     * @return {LinkedListNode}
+     */
+    deleteTail(){
+        const deletedTail = this.tail
+
+        // If only there is one Node.
+        if(this.head === this.tail){
+            this.head = null
+            this.tail = null
+            return deletedTail
+        }
+
+        let currentNode = this.head
+        while(currentNode.next){
+            if(!currentNode.next.next){
+                currentNode.next = null
+            } else {
+                currentNode = currentNode.next
+            }
+        }
+        this.tail = currentNode
+        return deletedTail
+    }
+
+    /**
      * Array of values that need to be converted to linked list.
      * @param {*[]} values 
      */
