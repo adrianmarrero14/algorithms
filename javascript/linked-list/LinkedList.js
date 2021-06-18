@@ -266,6 +266,14 @@ class LinkedList {
         return this.toArray().map((node) => node.toString(callback)).toString()
     }
 
+    /**
+     * Reverse a linked list.
+     * @returns {LinkedList}
+     */
+    reverse(){
+        // ..
+    }
+
 }
 
 const myLinkedList = new LinkedList()
