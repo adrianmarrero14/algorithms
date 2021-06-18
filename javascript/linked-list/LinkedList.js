@@ -173,7 +173,38 @@ class LinkedList {
      * @return {LinkedListNode}
      */
     delete(value){
-        // ...
+        if(!this.head){
+            return null
+        }
+
+        let deletedNode = null
+
+        // If the head must be deleted.
+        while(this.head && this.compare.equal(this.head.value, value)){
+            deletedNode = this.head
+            this.head = this.head.next
+        }
+
+        let currentNode = this.head
+
+        // If the next node must be deleted.
+        if(currentNode !== null){
+            while(currentNode.next){
+                if(this.compare.equal(currentNode.next.value, value)){
+                    deletedNode = currentNode.next
+                    currentNode.next = currentNode.next.next
+                } else {
+                    currentNode = currentNode.next
+                }
+            }
+        }
+
+        // Check if tail must be deleted
+        if(this.compare.equal(this.tail.value, value)){
+            this.tail = currentNode
+        }
+        
+        return deletedNode
     }
 
     /**
