@@ -1,23 +1,18 @@
-class Node 
-{
-    constructor(value)
-    {
+class Node {
+    constructor(value){
         this.value = value
         this.next = null
     }
 }
 
-class Queue 
-{
-    constructor()
-    {
+class Queue {
+    constructor(){
         this.first = null
         this.last = null
         this.length = 0
     }
 
-    peek()
-    {
+    peek(){
         if(this.length === 0){
             return 'The Queue is Empty'
         } else {
@@ -25,8 +20,7 @@ class Queue
         }
     }
 
-    enqueue(value)
-    {
+    enqueue(value){
         const newNode = new Node(value)
         if(this.length === 0){
             this.first = newNode
@@ -40,8 +34,7 @@ class Queue
         return this
     }
 
-    dequeue()
-    {
+    dequeue(){
         if(this.length === 0){
             return 'The Queue is Empty'
         }
