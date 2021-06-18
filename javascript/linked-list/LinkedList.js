@@ -168,6 +168,26 @@ class LinkedList {
     }
 
     /**
+     * Delete a node selected.
+     * @param {*} value
+     * @return {LinkedListNode}
+     */
+    delete(value){
+        // ...
+    }
+
+    /**
+     * Find a node selected.
+     * @param {Object} findParams 
+     * @param {*} findParams.value 
+     * @param {function} [findParams.callback] 
+     * @return {LinkedListNode}
+     */
+    find({ value = undefined, callback = undefined }){
+        // ...
+    }
+
+    /**
      * Array of values that need to be converted to linked list.
      * @param {*[]} values 
      */
