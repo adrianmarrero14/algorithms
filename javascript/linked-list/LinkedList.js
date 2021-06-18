@@ -100,6 +100,7 @@ class LinkedList {
         if(!this.tail){
             this.tail = newNode
         }
+        return this
     }
 
     /**
