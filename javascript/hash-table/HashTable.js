@@ -274,3 +274,29 @@ class LinkedList {
     }
 
 }
+
+const defaultHashTableSize = 32
+
+class HashTable {
+     /**
+      * @param {number} hashTableSize 
+      */
+    constructor(hashTableSize = defaultHashTableSize) {
+        this.buckets = Array(hashTableSize).fill(null).map(() => new LinkedList())
+        this.keys = {}
+    }
+
+    /**
+     * @param {string} key 
+     * @returns {number}
+     */
+    hash(key){
+        const hash = Array.from(key).reduce(
+            (hashAcumulator, keySymbol) => 
+                (hashAcumulator + keySymbol.charCodeAt(0)), 
+                0,
+        )
+        return hash % this.buckets.length
+    }
+
+}
