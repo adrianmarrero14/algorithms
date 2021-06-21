@@ -304,7 +304,17 @@ class HashTable {
      * @param {*} values
      */
     set(key, value){
-        // ...
+        const keyHash = this.hash(key)
+        this.keys[key] = keyHash
+        const bucketLinkedList = this.buckets[keyHash]
+        const node = bucketLinkedList.find({ 
+            callback: (nodeValue) => nodeValue.key === key })
+
+        if(!node){
+            bucketLinkedList.append({ key, value })
+        } else {
+            node.value.value = value
+        }
     }
 
     /**
