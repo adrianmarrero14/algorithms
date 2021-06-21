@@ -342,14 +342,14 @@ class HashTable {
      * @return {boolean}
      */
     has(key){
-        // ...
+        return Object.hasOwnProperty.call(this.keys, key)
     }
 
     /**
      * @return {string[]}
      */
     getKeys(){
-        // ...
+        return Object.keys(this.keys)
     }
 
     /**
