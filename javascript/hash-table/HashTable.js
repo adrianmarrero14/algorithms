@@ -299,4 +299,50 @@ class HashTable {
         return hash % this.buckets.length
     }
 
+    /**
+     * @param {string} key
+     * @param {*} values
+     */
+    set(key, value){
+        // ...
+    }
+
+    /**
+     * @param {string} key
+     * @return {*}
+     */
+    delete(key){
+        // ...
+    }
+
+    /**
+     * @param {string} key
+     * @return {*}
+     */
+    get(key){
+        // ...
+    }
+
+    /**
+     * @param {string} key
+     * @return {boolean}
+     */
+    has(key){
+        // ...
+    }
+
+    /**
+     * @return {string[]}
+     */
+    getKeys(){
+        // ...
+    }
+
+    /**
+     * @return {*[]}
+     */
+    getValues(){
+        // ...
+    }
+
 }
