@@ -358,5 +358,6 @@ class HashTable {
     getValues(){
         // ...
     }
-
 }
+
+const hashTable = new HashTable()
