@@ -115,16 +115,11 @@ class DoublyLinkedList {
         if(!this.head){
             this.head = newNode
             this.tail = newNode
-            
             return this
         }
-
         this.tail.next = newNode
-
         newNode.previous = this.tail
-
         this.tail = newNode
-
         return this
     }
 
