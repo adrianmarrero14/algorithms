@@ -98,7 +98,7 @@ class DoublyLinkedList {
         }
 
         this.head = newNode
-        
+
         if(!this.tail){
             this.tail = newNode
         }
@@ -110,7 +110,22 @@ class DoublyLinkedList {
      * @return {DoublyLinkedList}
      */
     append(){
+        const newNode = new DoublyLinkedListNode(value)
 
+        if(!this.head){
+            this.head = newNode
+            this.tail = newNode
+            
+            return this
+        }
+
+        this.tail.next = newNode
+
+        newNode.previous = this.tail
+
+        this.tail = newNode
+        
+        return this
     }
 
     /**
