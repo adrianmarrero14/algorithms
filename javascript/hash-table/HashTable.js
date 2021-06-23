@@ -322,7 +322,15 @@ class HashTable {
      * @return {*}
      */
     delete(key){
-        // ...
+        const keyHash = this.hash(key)
+        delete this.key[key]
+        const bucketLinkedList = this.buckets[keyHash]
+        const node = bucketLinkedList.find({ callback: (nodeValue) => nodeValue.key === key })
+        
+        if(node){
+            return bucketLinkedList.delete(node.value)
+        }
+        return null
     }
 
     /**
@@ -356,7 +364,10 @@ class HashTable {
      * @return {*[]}
      */
     getValues(){
-        // ...
+        return this.buckets.reduce((values, bucket) => {
+            const bucketValues = bucket.toArray().map((LinkedListNode) => LinkedListNode.value.value)
+            return values.concat(bucketValues)
+        }, [])
     }
 }
 
