@@ -77,5 +77,90 @@ class Comparator {
 }
 
 class DoublyLinkedList {
-    
+    /**
+     * @param {Function} comparatorFunction 
+     */
+    constructor(comparatorFunction){
+        this.head = null
+        this.tail = null
+        this.compare = new Comparator(comparatorFunction)
+    }
+
+    /**
+     * @param {*} value
+     * @return {DoublyLinkedList}
+     */
+    prepend(){
+
+    }
+
+    /**
+     * @param {*} value
+     * @return {DoublyLinkedList}
+     */
+    append(){
+
+    }
+
+    /**
+     * @param {*} value
+     * @return {DoublyLinkedListNode}
+     */
+    delete(){
+
+    }
+
+    /**
+     * @param {Object} findParams
+     * @param {*} findParams.value
+     * @param {Function} [findParams.callback]
+     * @return {DoublyLinkedListNode}
+     */
+    find(){
+
+    }
+
+    /**
+     * @return {DoublyLinkedListNode}
+     */
+    deleteTail(){
+
+    }
+
+    /**
+     * @return {DoublyLinkedListNode}
+     */
+    deleteHead(){
+
+    }
+
+    /**
+     * @return {DoublyLinkedListNode[]}
+     */
+    toArray(){
+
+    }
+
+    /**
+     * @param {*[]} values
+     * @return {DoublyLinkedList}
+     */
+    fromArray(){
+
+    }
+
+    /**
+     * @param {Function} [callback]
+     * @return {string}
+     */
+    toString(){
+
+    }
+
+    /**
+     * @return {DoublyLinkedList}
+     */
+    reverse(){
+
+    }
 }
