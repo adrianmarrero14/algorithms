@@ -90,8 +90,19 @@ class DoublyLinkedList {
      * @param {*} value
      * @return {DoublyLinkedList}
      */
-    prepend(){
+    prepend(value){
+        const newNode = new DoublyLinkedListNode(value, this.head)
 
+        if(this.head){
+            this.head.previous = newNode
+        }
+
+        this.head = newNode
+        
+        if(!this.tail){
+            this.tail = newNode
+        }
+        return this
     }
 
     /**
