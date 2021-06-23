@@ -124,7 +124,7 @@ class DoublyLinkedList {
         newNode.previous = this.tail
 
         this.tail = newNode
-        
+
         return this
     }
 
@@ -132,8 +132,42 @@ class DoublyLinkedList {
      * @param {*} value
      * @return {DoublyLinkedListNode}
      */
-    delete(){
+    delete(value){
+        if(!this.head){
+            return null
+        }
 
+        let deletedNode = null
+        let currentNode = this.head
+
+        while(currentNode){
+            if(this.compare.equal(currentNode.value, value)){
+                deletedNode = currentNode
+
+                if(deletedNode === this.head){
+                    this.head = deletedNode.next
+
+                    if(this.head){
+                        this.head.previous = null
+                    }
+
+                    if(deleteNode === this.tail){
+                        this.tail = null
+                    }
+                } else if(deletedNode === this.tail){
+                    this.tail = deletedNode.previous
+                    this.tail.next = null
+                } else {
+                    const previousNode = deletedNode.previous
+                    const nextNode = deletedNode.next
+
+                    previousNode.next = nextNode
+                    nextNode.previous = previousNode
+                }
+            }
+            currentNode = currentNode.next
+        }
+        return deletedNode
     }
 
     /**
