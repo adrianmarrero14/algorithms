@@ -179,7 +179,21 @@ class DoublyLinkedList {
      * @return {DoublyLinkedListNode}
      */
     deleteTail(){
+        if(!this.tail){
+            return null
+        }
+        if(this.head === this.tail){
+            const deletedTail = this.tail
+            this.head = null
+            this.tail = null
 
+            return deletedTail
+        }
+        const deletedTail = this.tail
+        this.tail = this.tail.previous
+        this.tail.next = null
+
+        return deletedTail
     }
 
     /**
