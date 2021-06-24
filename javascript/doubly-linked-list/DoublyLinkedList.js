@@ -186,7 +186,19 @@ class DoublyLinkedList {
      * @return {DoublyLinkedListNode}
      */
     deleteHead(){
+        if(!this.head){
+            return null
+        }
 
+        const deletedHead = this.head
+        if(this.head.next){
+            this.head = this.head.next
+            this.head.previous = null
+        } else {
+            this.head = null
+            this.tail = null
+        }
+        return deletedHead
     }
 
     /**
@@ -195,7 +207,6 @@ class DoublyLinkedList {
     toArray(){
         const nodes = []
         let currentNode = this.head
-        
         while(currentNode){
             nodes.push(currentNode)
             currentNode = currentNode.next
