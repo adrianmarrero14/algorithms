@@ -265,6 +265,23 @@ class DoublyLinkedList {
      * @return {DoublyLinkedList}
      */
     reverse(){
+        let currentNode = this.head
+        let previousNode = null
+        let nextNode = null
 
+        while(currentNode){
+            nextNode = currentNode.next
+            previousNode = currentNode.previous
+
+            currentNode.next = previousNode
+            currentNode.previous = nextNode
+
+            previousNode = currentNode
+            currentNode = nextNode
+        }
+        this.tail = this.head
+        this.head = previousNode
+
+        return this
     }
 }
