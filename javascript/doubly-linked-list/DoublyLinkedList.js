@@ -193,23 +193,31 @@ class DoublyLinkedList {
      * @return {DoublyLinkedListNode[]}
      */
     toArray(){
-
+        const nodes = []
+        let currentNode = this.head
+        
+        while(currentNode){
+            nodes.push(currentNode)
+            currentNode = currentNode.next
+        }
+        return nodes
     }
 
     /**
      * @param {*[]} values
      * @return {DoublyLinkedList}
      */
-    fromArray(){
-
+    fromArray(values){
+        values.forEach((value) => this.append(value))
+        return this
     }
 
     /**
      * @param {Function} [callback]
      * @return {string}
      */
-    toString(){
-
+    toString(callback){
+        return this.toArray().map((node) => node.toString(callback))
     }
 
     /**
