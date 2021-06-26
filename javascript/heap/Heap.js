@@ -66,6 +66,7 @@ export default class Comparator {
 }
 
 class Heap {
+
     /**
      * @constructs Heap
      * @param {Function} [comparatorFunction]
@@ -77,5 +78,29 @@ class Heap {
 
         this.heapContainer = []
         this.compare = new Comparator(comparatorFunction)
+    }
+
+    /**
+     * @param {number} parentIndex 
+     * @return {number}
+     */
+    getLeftChildIndex(parentIndex){
+        return (2 * parentIndex) + 1
+    }
+
+    /**
+     * @param {number} parentIndex 
+     * @return {number}
+     */
+    getRightChildIndex(parentIndex){
+        return (2 * parentIndex) + 2
+    }
+
+    /**
+     * @param {number} childIndex 
+     * @return {number}
+     */
+    getParentIndex(parentIndex){
+        return Math.floor((childIndex -1) / 2)
     }
 }
