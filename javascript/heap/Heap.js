@@ -101,7 +101,7 @@ class Heap {
      * @return {number}
      */
     getParentIndex(parentIndex){
-        return Math.floor((childIndex -1) / 2)
+        return Math.floor((childIndex - 1) / 2)
     }
 
     /**
@@ -126,5 +126,29 @@ class Heap {
      */
     hasRightChild(parentIndex){
         return this.getRightChildIndex(parentIndex) < this.heapContainer.length
+    }
+
+    /**
+     * @param {number} parentIndex
+     * @return {*}
+     */
+    leftChild(parentIndex){
+        return this.heapContainer[this.getLeftChildIndex(parentIndex)]
+    }
+
+    /**
+     * @param {number} parentIndex
+     * @return {*}
+     */
+    rightChild(parentIndex){
+        return this.heapContainer[this.getRightChildIndex(parentIndex)]
+    }
+
+    /**
+     * @param {number} childIndex
+     * @return {*}
+     */
+    parent(childIndex){
+        return this.heapContainer[this.getParentIndex(childIndex)]
     }
 }
