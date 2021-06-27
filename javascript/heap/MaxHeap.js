@@ -319,3 +319,15 @@ class Heap {
         return this.heapContainer.toString()
     }
 }
+
+class MaxHeap extends Heap {
+
+    /**
+     * @param {*} firstElement
+     * @param {*} secondElement
+     * @return {boolean}
+     */
+    pairIsIncorrectOrder(firstElement, secondElement){
+        return this.compare.greaterThanOrEqual(firstElement, secondElement)
+    }
+}
