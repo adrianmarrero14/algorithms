@@ -216,6 +216,40 @@ class Heap {
     }
 
     /**
+     * @param {*} item 
+     * @param {Comparator} [comparator]
+     * @return {Heap}
+     */
+    remove(item, comparator = this.compare){
+        const numberOfItemsToRemove = this.find(item, comparator).length
+
+        for (let iteration = 0; iteration < numberOfItemsToRemove; iteration += 1){
+            const indexToRemove = this.find(item, comparator).pop()
+
+            if(indexToRemove === (this.heapContainer.length - 1)){
+                this.heapContainer.pop()
+            } else {
+                this.heapContainer[indexToRemove] = this.heapContainer.pop()
+
+                const parentItem = this.parent(indexToRemove)
+
+                if(
+                    this.hasLeftChild(indexToRemove)
+                    && (
+                        !parentItem
+                        || this.pairIsIncorrectOrder(parentItem, this.heapContainer[indexToRemove])
+                    )
+                ){
+                    this.heapifyDown(indexToRemove)
+                } else {
+                    this.heapifyUp(indexToRemove)
+                }
+            }
+        }
+        return this
+    }
+
+    /**
      * @param {number} [customStartIndex]
      */
     heapifyDown(customStartIndex = 0){
