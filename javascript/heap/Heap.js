@@ -304,4 +304,18 @@ class Heap {
             for ${firstElement} and ${secondElement} values.
             `)
     }
+
+    /**
+     * @return {boolean}
+     */
+    isEmpty(){
+        return !this.heapContainer.length
+    }
+
+    /**
+     * @return {string}
+     */
+    toString(){
+        return this.heapContainer.toString()
+    }
 }
