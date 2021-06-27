@@ -191,6 +191,31 @@ class Heap {
     }
 
     /**
+     * @param {*} item
+     * @return {Heap}
+     */
+    add(item){
+        this.heapContainer.push(item)
+        this.heapifyUp()
+        return this
+    }
+
+    /**
+     * @param {*} item 
+     * @param {Comparator} [comparator]
+     */
+    find(item, comparator = this.compare){
+        const foundItemIndices = []
+
+        for(let itemIndex = 0; itemIndex < this.heapContainer.length; itemIndex += 1){
+            if(comparator.equal(item, this.heapContainer[itemIndex])) {
+                foundItemIndices.push(itemIndex)
+            }
+        }
+        return foundItemIndices
+    }
+
+    /**
      * @param {number} [customStartIndex]
      */
     heapifyDown(customStartIndex = 0){
