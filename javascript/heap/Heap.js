@@ -171,4 +171,51 @@ class Heap {
         }
         return this.heapContainer[0]
     }
+
+    /**
+     * @return {*}
+     */
+    poll(){
+        if(this.heapContainer.length === 0){
+            return null
+        }
+
+        if(this.heapContainer.length === 1){
+            return this.heapContainer.pop()
+        }
+        const item = this.heapContainer[0]
+
+        this.heapContainer[0] = this.heapContainer.pop()
+        this.heapifyDown()
+        return item
+    }
+
+    /**
+     * @param {number} [customStartIndex]
+     */
+    heapifyDown(customStartIndex = 0){
+        let currentIndex = customStartIndex
+        let nextIndex = null
+
+        while(this.hasLeftChild(currentIndex)){
+            if(
+                this.hasRightChild(currentIndex)
+                && this.pairIsIncorrectOrder(this.rightChild(currentIndex), this.leftChild(currentIndex))
+            ){
+                nextIndex = this.getRightChildIndex(currentIndex)
+            } else {
+                nextIndex = this.getLeftChildIndex(currentIndex)
+            }
+
+            if(this.pairIsIncorrectOrder(
+                this.heapContainer[currentIndex],
+                this.heapContainer[nextIndex]
+            )){
+                break
+            }
+
+            this.swap(currentIndex, nextIndex)
+            currentIndex = nextIndex
+        }
+    }
 }
