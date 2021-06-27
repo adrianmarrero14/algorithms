@@ -233,4 +233,16 @@ class Heap {
             currentIndex = this.getParentIndex(currentIndex)
         }
     }
+
+    /**
+     * @param {*} firstElement
+     * @param {*} secondElement
+     * @return {boolean}
+     */
+    pairIsIncorrectOrder(firstElement, secondElement){
+        throw new Error(`
+            You have to implement heap pair comparision method
+            for ${firstElement} and ${secondElement} values.
+            `)
+    }
 }
