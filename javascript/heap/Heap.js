@@ -151,4 +151,24 @@ class Heap {
     parent(childIndex){
         return this.heapContainer[this.getParentIndex(childIndex)]
     }
+
+    /**
+     * @param {number} indexOne
+     * @param {number} indexTwo
+     */
+    swap(indexOne, indexTwo){
+        const temp = this.heapContainer[indexTwo]
+        this.heapContainer[indexTwo] = this.heapContainer[indexOne]
+        this.heapContainer[indexOne] = temp
+    }
+
+    /**
+     * @return {*}
+     */
+    peek(){
+        if(this.heapContainer.length === 0){
+            return null
+        }
+        return this.heapContainer[0]
+    }
 }
