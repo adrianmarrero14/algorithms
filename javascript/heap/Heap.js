@@ -218,4 +218,19 @@ class Heap {
             currentIndex = nextIndex
         }
     }
+
+    /**
+     * @param {number} [customStartIndex]
+     */
+    heapifyUp(customStartIndex){
+        let currentIndex = customStartIndex ||  this.heapContainer.length - 1
+
+        while(
+            this.hasParent(currentIndex)
+            && !this.pairIsIncorrectOrder(this.parent(currentIndex), this.heapContainer[currentIndex])
+        ){
+            this.swap(currentIndex, this.getParentIndex(currentIndex))
+            currentIndex = this.getParentIndex(currentIndex)
+        }
+    }
 }
