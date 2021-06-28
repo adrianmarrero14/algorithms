@@ -332,12 +332,27 @@ class Comparator {
     }
 }
 
-class PriorityQueue {
+class PriorityQueue extends MinHeap {
     constructor(){
+        // Call MinHeap constructor first.
         super()
 
+        // Setup priorities map.
         this.priorities = new Map()
 
+        // Use custom comparator for heap elements
         this.compare = new Comparator(this.comparePriority.bind(this))
     }
+
+    /**
+     * @param {*} item
+     * @param {number} [priority] 
+     * @return {PriorityQueue}
+    */
+   add(item, priority = 0){
+       this.priorities.set(item, priority)
+       super.add(item)
+       return this
+   }
+
 }
