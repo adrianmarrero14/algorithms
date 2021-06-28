@@ -366,4 +366,15 @@ class PriorityQueue extends MinHeap {
         return this
     }
 
+    /**
+     * @param {*} item
+     * @param {number} priority
+     * @return {PriorityQueue}
+     */
+    changePriority(item, priority){
+        this.remove(item, new Comparator(this.compareValue))
+        this.add(item, priority)
+        return this
+    }
+
 }
