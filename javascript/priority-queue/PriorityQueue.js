@@ -377,4 +377,20 @@ class PriorityQueue extends MinHeap {
         return this
     }
 
+    /**
+     * @param {*} item
+     * @return {Number[]}
+     */
+    findByValue(item){
+        return this.find(item, new Comparator(this.compareValue))
+    }
+
+    /**
+     * @param {*} item
+     * @return {boolean}
+     */
+    hasValue(item){
+        return this.findByValue(item).length > 0
+    }
+
 }
