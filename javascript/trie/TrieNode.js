@@ -413,4 +413,19 @@ class TrieNode {
         }
         return this
     }
+
+    /**
+     * @param {strng} character
+     * @return {boolean}
+     */
+    hasChild(character){
+        return this.children.has(character)
+    }
+
+    /**
+     * @return {boolean}
+     */
+    hasChildren(){
+        return this.children.getKeys().length !== 0
+    }
 }
