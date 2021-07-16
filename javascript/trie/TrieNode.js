@@ -386,4 +386,31 @@ class TrieNode {
     getChild(character){
         return this.children.get(character)
     }
+
+    /**
+     * @param {string} character
+     * @param {boolean} isCompleteWord
+     * @return {TrieNode}
+     */
+    addChild(character, isCompleteWord = false){
+        if(!this.children.has(character)){
+            this.children.set(character, new TrieNode(character, isCompleteWord))
+        }
+        const childNode = this.children.get(character)
+        childNode.isCompleteWord = childNode.isCompleteWord || isCompleteWord
+        return childNode
+    }
+
+    /**
+     * @param {string} character
+     * @return {TrieNode}
+     */
+    removeChild(character){
+        const childNode = this.getChild(character)
+
+        if(childNode && !childNode.isCompleteWord && !childNode.hasChildren()){
+            this.children.delete(character)
+        }
+        return this
+    }
 }
