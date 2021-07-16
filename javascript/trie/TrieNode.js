@@ -428,4 +428,22 @@ class TrieNode {
     hasChildren(){
         return this.children.getKeys().length !== 0
     }
+
+    /**
+     * @return {string[]}
+     */
+    suggestChildren(){
+        return [...this.children.getKeys()]
+    }
+
+    /**
+     * @return {string}
+     */
+    toString(){
+        let childrenAsString = this.suggestChildren().toString()
+        childrenAsString = childrenAsString ? `:${childrenAsString}` : ''
+        const isCompleteString = this.isCompleteWord ? '*' : ''
+
+        return `${this.character}${isCompleteString}${childrenAsString}`
+    }
 }
