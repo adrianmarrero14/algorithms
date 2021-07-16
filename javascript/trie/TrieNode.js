@@ -368,7 +368,22 @@ class HashTable {
         }, [])
     }
 }
-
 class TrieNode {
-    
+    /**
+     * @param {string} character
+     * @param {boolean} isCompleteWord
+     */
+    constructor(character, isCompleteWord = false){
+        this.character = character
+        this.isCompleteWord = isCompleteWord
+        this.children = new HashTable()
+    }
+
+    /**
+     * @param {string} character
+     * @return {TrieNode}
+     */
+    getChild(character){
+        return this.children.get(character)
+    }
 }
