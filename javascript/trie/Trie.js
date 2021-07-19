@@ -497,4 +497,17 @@ class Trie {
         depthFirstDelete(this.head)
         return this
     }
+
+    /**
+     * @param {string} word
+     * @return {string[]}
+     */
+    suggestNextCharacters(word){
+        const lastCharacter = this.getLasrCharacterNode(word)
+        
+        if(!lastCharacter){
+            return null
+        }
+        return lastCharacter.suggestChildren()
+    }
 }
