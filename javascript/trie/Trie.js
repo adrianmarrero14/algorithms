@@ -468,4 +468,33 @@ class Trie {
         }
         return this
     }
+
+    /**
+     * @param {string} word
+     * @return {Trie}
+     */
+    deleteWord(word){
+        const depthFirstDelete = (currentNode, charIndex = 0) => {
+            if(charIndex >= word.length){
+                return
+            }
+            const character = word[charIndex]
+            const nextNode = currentNode.getChild(character)
+
+            if(nextNode == null) {
+                return
+            }
+
+            depthFirstDelete(nextNode, charIndex + 1)
+
+            if(charIndex === (word.length - 1)){
+                nextNode.isCompleteWord = false
+            }
+
+            currentNode.removeChild(character)
+        }
+
+        depthFirstDelete(this.head)
+        return this
+    }
 }
