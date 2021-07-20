@@ -66,5 +66,8 @@ export default class Comparator {
 }
 
 class Sort {
-    
+   constructor(originalCallbacks){
+       this.callbacks = Sort.initSortingCallbacks(originalCallbacks)
+       this.comparator = new Comparator(this.callbacks.compareCallbacks)
+   } 
 }
