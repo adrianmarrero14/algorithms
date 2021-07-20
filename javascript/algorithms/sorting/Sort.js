@@ -68,6 +68,24 @@ export default class Comparator {
 class Sort {
    constructor(originalCallbacks){
        this.callbacks = Sort.initSortingCallbacks(originalCallbacks)
-       this.comparator = new Comparator(this.callbacks.compareCallbacks)
+       this.comparator = new Comparator(this.callbacks.compareCallback)
    } 
+
+   /**
+    * @param {SorterCallbacks} originalCallbacks
+    * @returns {SorterCallbacks}
+    */
+   static initSortingCallbacks(originalCallbacks){
+       const callbacks = originalCallbacks || {}
+       const stupCallback = () => {}
+
+       callbacks.compareCallback = callbacks.compareCallback || undefined
+       callbacks.visitingCallback = callbacks.visitingCallback || stupCallback
+
+       return callbacks
+   }
+
+   sort(){
+       throw new Error('Sort Method must be implemented')
+   }
 }
