@@ -503,11 +503,22 @@ class Trie {
      * @return {string[]}
      */
     suggestNextCharacters(word){
-        const lastCharacter = this.getLasrCharacterNode(word)
+        const lastCharacter = this.getLastCharacterNode(word)
         
         if(!lastCharacter){
             return null
         }
         return lastCharacter.suggestChildren()
     }
+
+    /**
+     * @param {string} word
+     * @return {boolean}
+     */
+    doesWordExist(word){
+        const lastCharacter = this.getLastCharacterNode(word);
+        return !!lastCharacter && lastCharacter.isCompleteWord;
+    }
+
+    /** */
 }
